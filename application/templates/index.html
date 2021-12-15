@@ -1,1 +1,92 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xm-12">
+            <div class="ml-auto mr-auto">
+                <div class="site-header-logo">
+                    <h1 class="text-center">
+                        Transformations
+                    </h1>
+                </div>
+                    <div class="text-center">
+                        <div class="input-a">
+                            <h2> Give value in between 0 and 1</h2>
+                            <form action="{{ url_for('index')}}"method="post">
+                                <input type="text" name="a" placeholder="Value of 'a'" required="required" />
+                                <input type="text" name="Input wave type" placeholder="rectangle or sin or triangular" required="required" />
+                                <br/>
+                                <br/>
+                                <button type="submit" class="btn btn-secondary btn-block btn-large">Generate</button>
+                            </form>
+                        </div> 
+                    </div>
+                    <div class="row p-4">
+                        <div class="card m-auto" style="width: 90%;">
+                            <div class="card-body">
+                                <div id="chart1"></div>
+                                <p class="card-text" href='#'>Visualisation 1</p>
+                            </div>
+                            </div>
+                        </div>
+            
+                        <div class="card mb-4 m-auto" style="width: 90%;">
+                            <div class="card-body">
+                                <div id="chart2"></div>
+                                <p class="card-text" class="text-center" href='#'>Visualisation 2</p>
+                            </div>
+                        </div>
 
+                        <!-- <div class="card mb-4 m-auto" style="width: 90%;">
+                            <div class="card-body">
+                                <div id="chart3"></div>
+                                <p class="card-text" class="text-center" href='#'>Graph 3</p>
+                            </div>
+                        </div>
+
+                        <div class="card mb-4 m-auto" style="width: 90%;">
+                            <div class="card-body">
+                                <div id="chart4"></div>
+                                <p class="card-text" class="text-center" href='#'>Graph 4</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card mb-4 m-auto" style="width: 90%;">
+                            <div class="card-body">
+                                <div id="chart5"></div>
+                                <p class="card-text" class="text-center" href='#'>Graph 5</p>
+                            </div>
+                        </div>
+
+                        <div class="card mb-4 m-auto" style="width: 90%;">
+                            <div class="card-body">
+                                <div id="chart6"></div>
+                                <p class="card-text" class="text-center" href='#'>Graph 6</p>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+    <!-- plotly CDN -->
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript">
+        var graphs1 = {{ graph1JSON | safe}};
+        Plotly.plot("chart1", graphs1,{});
+
+        var graphs2 = {{ graph2JSON | safe}};
+        Plotly.plot("chart2", graphs2,{});
+
+        // var graphs3 = {{ graph3JSON | safe}};
+        // Plotly.plot("chart3", graphs3,{});
+
+        // var graphs4 = {{ graph4JSON | safe}};
+        // Plotly.plot("chart4", graphs4,{});
+
+        // var graph5 = {{ graph5JSON | safe}};
+        // Plotly.plot("chart5", graphs5,{});
+
+        // var graphs6 = {{ graph6JSON | safe}};
+        // Plotly.plot("chart6", graphs6,{});
+    </script>
+
+{% endblock %}
